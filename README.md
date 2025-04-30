@@ -1,6 +1,6 @@
 # IP-Check
 
-**Simple Script to get Informations from IPs!**
+**Simple Script to get Informations about IP-adresses!**
 
 ## Description
 
@@ -28,7 +28,7 @@ Run the script by using the following command:
 ```bash
 python main.py
 ```
-Follow the Instructions inside the Script 
+Follow the instructions inside the script. 
 ![image](https://github.com/user-attachments/assets/6119be12-9321-4fb4-8f79-89d86f58b503)
 
 
