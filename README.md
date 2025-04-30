@@ -1,21 +1,22 @@
+
 # IP-Check
 
-**Simple Script to get Informations about IP-adresses!**
+**A simple Python script to retrieve information about IP addresses!**
 
 ## Description
 
-IP-Check is a Python-based script designed to retrieve and display information about IP addresses. Whether you're working on network diagnostics, security analysis, or just curious about an IP address, this tool provides a straightforward and efficient way to gather IP-related data.
+IP-Check is a Python-based script designed to fetch and display detailed information about IP addresses. It is useful for network diagnostics, security analysis, or simply to learn more about a specific IP address.
 
 ## Features
 
 - Retrieve detailed information about any IP address.
-- Simple and user-friendly script.
-- 100% Python implementation.
-- Safe detailed information to a File.
+- Simple and user-friendly interface.
+- Fully implemented in Python.
+- Save retrieved information safely to a file.
 
 ## Installation
 
-1. Dowload the file from https://github.com/IDname-git/IP-Check/releases
+1. Download the file from the [Releases page](https://github.com/IDname-git/IP-Check/releases).
 
 2. Install the required Python dependencies:
    ```bash
@@ -24,13 +25,14 @@ IP-Check is a Python-based script designed to retrieve and display information a
 
 ## Usage
 
-Run the script by using the following command:
+Run the script with the following command:
 ```bash
 python main.py
 ```
-Follow the instructions inside the script. 
-![image](https://github.com/user-attachments/assets/6119be12-9321-4fb4-8f79-89d86f58b503)
 
+Follow the instructions provided within the script.
+
+![Preview](https://github.com/user-attachments/assets/6119be12-9321-4fb4-8f79-89d86f58b503)
 
 ## Contributing
 
@@ -38,6 +40,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Boost Software License 1.0](LICENSE).
 
 ---
