@@ -32,15 +32,6 @@ Follow the instructions inside the script.
 ![image](https://github.com/user-attachments/assets/6119be12-9321-4fb4-8f79-89d86f58b503)
 
 
-
-## Example
-
-```bash
-python ip_check.py 8.8.8.8
-```
-
-This will output detailed information about the IP address `8.8.8.8`.
-
 ## Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request.
