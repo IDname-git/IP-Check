@@ -1,4 +1,7 @@
 import requests
+import sys
+
+
 input_prompt = '>>> '
 print("      ::::::::::: :::::::::          ::::::::  :::    ::: :::::::::: ::::::::  :::    ::: ")
 print("         :+:     :+:    :+:        :+:    :+: :+:    :+: :+:       :+:    :+: :+:   :+:   ")
@@ -7,10 +10,13 @@ print("       +#+     +#++:++#+         +#+        +#++:++#++ +#++:++#  +#+     
 print("      +#+     +#+               +#+        +#+    +#+ +#+       +#+        +#+  +#+       ")
 print("     #+#     #+#               #+#    #+# #+#    #+# #+#       #+#    #+# #+#   #+#       ")
 print("########### ###                ########  ###    ### ########## ########  ###    ###       ")
-print("")
 print("Made by IDname")
-print("Enter IPv4 or IPv6 address:")
-ip_address = input(input_prompt)
+
+if len(sys.argv) < 2:
+    print("Usage: py main.py <ip_address>")
+    print("Example: py main.py 1.1.1.1")
+    sys.exit(1)
+ip_address = sys.argv[1] if len(sys.argv) > 1 else input(input_prompt).strip()
 
 api_url = 'https://ipleak.net/json/' + ip_address
 api_url2 = 'https://reallyfreegeoip.org/json/' + ip_address
