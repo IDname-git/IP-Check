@@ -27,12 +27,10 @@ IP-Check is a Python-based script designed to fetch and display detailed informa
 
 Run the script with the following command:
 ```bash
-python main.py
+py main.py <ip_address>
+Example: py main.py 1.1.1.1
 ```
 
-Follow the instructions provided within the script.
-
-![Preview](https://github.com/user-attachments/assets/6119be12-9321-4fb4-8f79-89d86f58b503)
 
 ## Contributing
 
