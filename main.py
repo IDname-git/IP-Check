@@ -1,7 +1,7 @@
 import requests
 import sys
 
-
+Version = '1.2.2'
 input_prompt = '>>> '
 print("      ::::::::::: :::::::::          ::::::::  :::    ::: :::::::::: ::::::::  :::    ::: ")
 print("         :+:     :+:    :+:        :+:    :+: :+:    :+: :+:       :+:    :+: :+:   :+:   ")
@@ -11,6 +11,22 @@ print("      +#+     +#+               +#+        +#+    +#+ +#+       +#+      
 print("     #+#     #+#               #+#    #+# #+#    #+# #+#       #+#    #+# #+#   #+#       ")
 print("########### ###                ########  ###    ### ########## ########  ###    ###       ")
 print("Made by IDname")
+VInfo = requests.get('https://raw.githubusercontent.com/IDname-git/IP-Check/main/version.json')
+
+if VInfo.status_code == 200:
+    try:
+        version_data = VInfo.json()
+        latest_version = version_data.get("LatestVersion", "Unknown")
+        gh_link = version_data.get("GHLink", "https://github.com/IDname-git/IP-Check")
+        
+        if Version != latest_version:
+            print(f"[INFO] New version available: {latest_version}. You are using {Version}.")
+            print(f"[INFO] Visit {gh_link} to download the latest version.")
+    except requests.exceptions.JSONDecodeError:
+        print("Failed to parse version information. The response is not valid JSON.")
+else:
+    print("[INFO] Failed to check for updates. Status code:", VInfo.status_code)
+print("")
 
 if len(sys.argv) < 2:
     print("Usage: py main.py <ip_address>")
@@ -25,24 +41,24 @@ response = requests.get(api_url)
 if response.status_code == 200:
     data = response.json()
 else:
-    print("Request failed with status code:", response.status_code)
-    print("Response:", response.text)
+    print("[INFO] Request failed with status code:", response.status_code)
+    print("[INFO] Response:", response.text)
     data = {}
 
 response2 = requests.get(api_url2)
 if response2.status_code == 200:
     data2 = response2.json()
 else:
-    print("Request failed with status code:", response2.status_code)
-    print("Response:", response2.text)
+    print("[INFO] Request failed with status code:", response2.status_code)
+    print("[INFO] Response:", response2.text)
     data2 = {}
 
 response3 = requests.get(api_url3)
 if response3.status_code == 200:
     data3 = response3.json()
 else:
-    print("Request failed with status code:", response3.status_code)
-    print("Response:", response3.text)
+    print("[INFO] Request failed with status code:", response3.status_code)
+    print("[INFO] Response:", response3.text)
     data3 = {}
 
 def safe_format(*values):
@@ -93,8 +109,7 @@ if save_to_file == 'y':
             file.write(f"{label}: {value if value is not None and value != '' else 'Not available'}\n")
         file.write("File created with github.com/IDname-git/IP-Check\n")
         print(f"Information saved to ip_info{ip_address}.txt")
+        input('Press any key to exit...')
 
 else:
         print("Information not saved to file.")
-
-input('Press any key to exit...')
