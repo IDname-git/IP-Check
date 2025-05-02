@@ -1,7 +1,7 @@
 import requests
 import sys
 
-Version = '1.2.2'
+Version = '1.2.3'
 input_prompt = '>>> '
 print("      ::::::::::: :::::::::          ::::::::  :::    ::: :::::::::: ::::::::  :::    ::: ")
 print("         :+:     :+:    :+:        :+:    :+: :+:    :+: :+:       :+:    :+: :+:   :+:   ")
@@ -37,29 +37,19 @@ ip_address = sys.argv[1] if len(sys.argv) > 1 else input(input_prompt).strip()
 api_url = 'https://ipleak.net/json/' + ip_address
 api_url2 = 'https://reallyfreegeoip.org/json/' + ip_address
 api_url3 = 'https://ipwho.is/' + ip_address
-response = requests.get(api_url)
-if response.status_code == 200:
-    data = response.json()
-else:
-    print("[INFO] Request failed with status code:", response.status_code)
-    print("[INFO] Response:", response.text)
-    data = {}
+api_urls = [api_url, api_url2, api_url3]
+data_list = []
 
-response2 = requests.get(api_url2)
-if response2.status_code == 200:
-    data2 = response2.json()
-else:
-    print("[INFO] Request failed with status code:", response2.status_code)
-    print("[INFO] Response:", response2.text)
-    data2 = {}
+for i, url in enumerate(api_urls):
+    response = requests.get(url)
+    if response.status_code == 200:
+        data_list.append(response.json())
+    else:
+        print(f"[INFO] Request to {url} failed with status code:", response.status_code)
+        print("[INFO] Response:", response.text)
+        data_list.append({})
 
-response3 = requests.get(api_url3)
-if response3.status_code == 200:
-    data3 = response3.json()
-else:
-    print("[INFO] Request failed with status code:", response3.status_code)
-    print("[INFO] Response:", response3.text)
-    data3 = {}
+data, data2, data3 = data_list
 
 def safe_format(*values):
     return " | ".join([str(value if value is not None and value != '' else 'Not available') for value in values])
@@ -113,3 +103,4 @@ if save_to_file == 'y':
 
 else:
         print("Information not saved to file.")
+
